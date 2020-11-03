@@ -41,6 +41,26 @@
     border: 2px solid rgb(133, 121, 101);
 }
 
+.button-run-or-pause,
+.button-reset {
+    padding: 30px;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 35px;
+}
+
+/* динамические классы изображений */
+.button-run {
+    background-image: url("../icons/play.svg");
+}
+
+.button-pause {
+    background-image: url("../icons/pause.svg");
+}
+
+.button-reset {
+    background-image: url("../icons/undo.svg");
+}
 
 .block,
 button {

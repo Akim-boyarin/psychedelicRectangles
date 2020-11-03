@@ -7,14 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychodel</title>
     <link rel="stylesheet" href="css/style.css">
-
 </head>
 
 <body>
     <div class="main">
         <div class="buttons">
-            <button class="button button-run-or-pause" type="button">Run/Pause</button>
-            <button class="button button-cancel" type="button">Reset</button>
+            <button class="button button-run-or-pause button-run" type="button"></button>
+            <button class="button button-reset" type="button"></button>
         </div>
         <audio class="audio" src="audio/cartoons-witch_doctor__cutted.mp3" loop></audio>
         <div class="block block1">
@@ -36,7 +35,7 @@
         let blocks = document.querySelectorAll(".block");
         let audioTrack = document.querySelector(".audio");
         let buttonRunOrPause = document.querySelector(".button-run-or-pause");
-        let buttonCancel = document.querySelector(".button-cancel");
+        let buttonCancel = document.querySelector(".button-reset");
 
         // параметры смены цвета
         let timerchangeColors;
@@ -50,6 +49,8 @@
             changeColorsOrNot();
 
             // отображение изменений в интерфейсе
+            buttonRunOrPause.classList.toggle("button-run");
+            buttonRunOrPause.classList.toggle("button-pause");
             buttonRunOrPause.classList.add("button-focused");
             setTimeout(() => {
                 buttonRunOrPause.classList.remove("button-focused");
