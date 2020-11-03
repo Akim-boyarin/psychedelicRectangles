@@ -51,15 +51,15 @@
 
 /* динамические классы изображений */
 .button-run {
-    background-image: url("../icons/play.svg");
+    background-image: url("icons/play.svg");
 }
 
 .button-pause {
-    background-image: url("../icons/pause.svg");
+    background-image: url("icons/pause.svg");
 }
 
 .button-reset {
-    background-image: url("../icons/undo.svg");
+    background-image: url("icons/undo.svg");
 }
 
 .block,
