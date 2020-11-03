@@ -49,8 +49,10 @@
             changeColorsOrNot();
 
             // отображение изменений в интерфейсе
-            buttonRunOrPause.classList.toggle("button-run");
-            buttonRunOrPause.classList.toggle("button-pause");
+            let buttonFaces = ["button-run", "button-pause"];
+            buttonFaces.forEach(buttonFace => {
+                buttonRunOrPause.classList.toggle(buttonFace);
+            });
             buttonRunOrPause.classList.add("button-focused");
             setTimeout(() => {
                 buttonRunOrPause.classList.remove("button-focused");
