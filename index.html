@@ -37,22 +37,20 @@
         let buttonRunOrPause = document.querySelector(".button-run-or-pause");
         let buttonCancel = document.querySelector(".button-reset");
 
-        // параметры смены цвета
+        // параметры смены состояний
         let timerchangeColors;
-        let psychoCondition = true;
+        let psychoCondition = false;
         let timeInterval = 50;
 
         // обработка событий
-        
+
         // кнопка запуска/паузы
         buttonRunOrPause.onclick = () => {
+            psychoCondition = !psychoCondition;
             changeColorsOrNot();
 
             // отображение изменений в интерфейсе
-            let buttonFaces = ["button-run", "button-pause"];
-            buttonFaces.forEach(buttonFace => {
-                buttonRunOrPause.classList.toggle(buttonFace);
-            });
+            changeRunButtonImage();
             buttonRunOrPause.classList.add("button-focused");
             setTimeout(() => {
                 buttonRunOrPause.classList.remove("button-focused");
@@ -79,11 +77,15 @@
             setTimeout(() => {
                 buttonCancel.classList.remove("button-focused");
             }, 500);
+            changeRunButtonImage(); // кнопка запуска
         }
 
         // первый блок
         blocks[0].onclick = () => {
+            psychoCondition = !psychoCondition;
             changeColorsOrNot();
+            // отображение картинки кнопки запуска
+            changeRunButtonImage();
         }
 
         // функции, использующиеся в приложении
@@ -112,8 +114,17 @@
                 audioTrack.pause(); // пауза 
                 clearInterval(timerchangeColors); // прерывание смены цветов
             }
+        }
 
-            psychoCondition = !psychoCondition;
+        // смена картинки на кнопке пуска
+        function changeRunButtonImage() {
+            if (psychoCondition) {
+                buttonRunOrPause.classList.remove("button-run");
+                buttonRunOrPause.classList.add("button-pause");
+            } else {
+                buttonRunOrPause.classList.remove("button-pause");
+                buttonRunOrPause.classList.add("button-run");
+            }
         }
     </script>
 </body>
